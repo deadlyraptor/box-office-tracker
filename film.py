@@ -3,6 +3,8 @@ This program creates films and distributors.
 """
 import math
 import distributor
+import dis
+
 # A class, Film, that is used for various properties associated with a film booking.
 class Film:
 
@@ -81,25 +83,25 @@ nosferatu = Film('Nosferatu', 'Kino Lorber', '10/29', '10/19', 250, '35')
 isla_bonita = Film('Isla Bonita', 'Imagina', '7/24', '7/30', 0, '35')
 
 print('Nosferatu values:')
-print('Initial gross: ' + str(nosferatu.get_gross()))
+print('Initial gross: {}'.format(nosferatu.get_gross()))
 newGross = 25.0  # eval(input('Enter gross: '))
 nosferatu.set_gross(newGross)
-print('New gross: ' + str(nosferatu.get_gross()))
-print('Initial overage: ' + str(nosferatu.get_overage()))
+print('New gross: {}'.format(nosferatu.get_gross()))
+print('Initial overage: {}'.format(nosferatu.get_overage()))
 nosferatu.set_overage()
-print('New overage: ' + str(nosferatu.get_overage()))
+print('New overage: {}'.format(nosferatu.get_overage()))
 nosferatu.set_total()
-print('Total paid: ' + str(nosferatu.get_total()))
+print('Total paid: {}'.format(nosferatu.get_total()))
 
 print()
 
 print('Isla Bonita values:')
-print('Initial gross: ' + str(isla_bonita.get_gross()))
+print('Initial gross: {}'.format(isla_bonita.get_gross()))
 newGross = 10475
 isla_bonita.set_gross(newGross)
-print('New gross: ' + str(isla_bonita.get_gross()))
-print('Initial overage: ' + str(isla_bonita.get_overage()))
+print('New gross: {}'.format(isla_bonita.get_gross()))
+print('Initial overage: {}'.format(isla_bonita.get_overage()))
 isla_bonita.set_overage()
-print('New overage: ' + str(isla_bonita.get_overage()))
+print('New overage: {}'.format(isla_bonita.get_overage()))
 isla_bonita.set_total()
-print('Total paid: ' + str(isla_bonita.get_total()))
+print('Total paid: {}'.format(isla_bonita.get_total()))

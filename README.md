@@ -1,1 +1,1 @@
-# box-office-tracker
+This Python program tracks box office grosses and payments made to film distributors.
