@@ -157,51 +157,6 @@ def addFilm(self):
     c = conn.cursor()
     film_list = [self.name, self.distributor, self.start_date,
                  self.end_date, self.guarantee, self.percentage]
-    c.execute('INSERT into films VALUES (?, ?, ?, ?, ?, ?)', film_list)
+    c.execute('INSERT into films VALUES (NULL, ?, ?, ?, ?, ?, ?)', film_list)
     conn.commit()
     conn.close()
-
-nosferatu = Film('Nosferatu', 'Kino Lorber', '10/29', '10/19', 250, '35')
-isla_bonita = Film('Isla Bonita', 'Imagina', '7/24', '7/30', 0, '35')
-
-addFilm(nosferatu)
-addFilm(isla_bonita)
-
-"""
-print('Nosferatu values:')
-print('Initial gross: {}'.format(nosferatu.get_gross()))
-newGross = 100  # eval(input('Enter gross: '))
-nosferatu.set_gross(newGross)
-print('New gross: {}'.format(nosferatu.get_gross()))
-print('Initial overage: {}'.format(nosferatu.get_overage()))
-nosferatu.set_overage()
-print('New overage: {}'.format(nosferatu.get_overage()))
-nosferatu.set_total()
-print('Total paid: {}'.format(nosferatu.get_total()))
-nosferatu.set_net()
-print('Net profit: {}'.format(nosferatu.get_net()))
-nosferatu.set_mgnum()
-print('Minimum guarantee check number: {}'.format(nosferatu.get_mgnum()))
-nosferatu.set_onum()
-print('Overage check number: {}'.format(nosferatu.get_onum()))
-nosferatu.set_mgDate()
-print('Minimum guarantee sent: {}.'.format(nosferatu.get_mgDate()))
-nosferatu.set_odate()
-print('Overage sent: {}.'.format(nosferatu.get_odate()))
-
-print()
-
-print('Isla Bonita values:')
-print('Initial gross: {}'.format(isla_bonita.get_gross()))
-newGross = 10475
-isla_bonita.set_gross(newGross)
-print('New gross: {}'.format(isla_bonita.get_gross()))
-print('Initial overage: {}'.format(isla_bonita.get_overage()))
-isla_bonita.set_overage()
-print('New overage: {}'.format(isla_bonita.get_overage()))
-isla_bonita.set_total()
-print('Total paid: {}'.format(isla_bonita.get_total()))
-isla_bonita.set_net()
-print('Net profit: {}'.format(isla_bonita.get_net()))
-print('Minimum guarantee check number: {}'.format(isla_bonita.get_mgnum()))
-"""

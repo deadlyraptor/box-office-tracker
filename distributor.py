@@ -18,27 +18,6 @@ class Distributor:
         self.state = state
         self.zip = zip
 
-kino_lorber = Distributor('Kino Lorber',
-                          'Kino Lorber',
-                          '333 West 39th Street',
-                          'New York',
-                          'New York',
-                          '10018')
-
-park_circus = Distributor('Park Circus',
-                          'Park Circus, Inc.',
-                          '11846 Ventura Blvd, Suite 140',
-                          'Studio City',
-                          'California',
-                          '91604')
-
-universal = Distributor('Universal Pictures',
-                        'Universal Film Exchanges, Inc.',
-                        'PO Box 848270',
-                        'Dallas',
-                        'Texas',
-                        '75284')
-
 
 def addDis(self):
     conn = sqlite3.connect('/home/javier/box_office_tracker.db')
@@ -48,6 +27,3 @@ def addDis(self):
     c.execute('INSERT into distributors VALUES (NULL, ?, ?, ?, ?, ?, ?)', dis_list)
     conn.commit()
     conn.close()
-
-addDis(park_circus)
-addDis(universal)
