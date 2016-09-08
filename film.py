@@ -1,10 +1,6 @@
-"""
-This program creates films and distributors.
-"""
 import math
-# import distributor
 import datetime
-import sqlite3
+import db
 
 # A class, Film, that is used for various properties associated with a
 # film booking.
@@ -17,12 +13,12 @@ class Film:
     overage = 0.0
     posted = False
     settled = False
-    totalPaid = 0.0
+    total_paid = 0.0
     net = 0.0
-    mgNum = None
-    oNum = None
-    mgDate = None
-    oDate = None
+    mg_num = None
+    o_num = None
+    mg_date = None
+    o_date = None
 
     # Class constructor.
     def __init__(self,
@@ -39,6 +35,8 @@ class Film:
         self.guarantee = float(guarantee)
         self.percentage = (float(percentage)/100)
 
+
+class Calls:
     # Returns the gross of a film; initially 0.
     def get_gross(self):
         # print('The {} gross is {}.'.format(self.name, self.gross))
@@ -62,9 +60,9 @@ class Film:
     """
     def set_overage(self):
         if self.get_gross() * self.percentage > self.guarantee:
-            newOverage = round(((self.get_gross() * self.percentage) -
+            new_overage = round(((self.get_gross() * self.percentage) -
                                 self.guarantee), 2)
-            self.overage = newOverage
+            self.overage = new_overage
         else:
             pass
 
@@ -75,8 +73,8 @@ class Film:
 
     # Sets the posted status of a film to True.
     def set_posted(self):
-        postedStatus = input('Has the film been posted? y/n: ')
-        if postedStatus == 'y':
+        posted_status = input('Has the film been posted? y/n: ')
+        if posted_status == 'y':
             self.posted = True
         else:
             pass
@@ -88,20 +86,20 @@ class Film:
 
     # Sets the settled status of a film to True.
     def set_settled(self):
-        settledStatus = input('Has the film been settled? y/n: ')
-        if settledStatus == 'y':
+        settled_status = input('Has the film been settled? y/n: ')
+        if settled_status == 'y':
             self.settled = True
         else:
             pass
 
     # Returns the total amount paid on a film; initially 0.
     def get_total(self):
-        return self.totalPaid
+        return self.total_paid
 
     # Sets the total amount paid on a film.
     def set_total(self):
-        newTotal = (self.guarantee + self.get_overage())
-        self.totalPaid = newTotal
+        new_total = (self.guarantee + self.get_overage())
+        self.total_paid = new_total
 
     # Returns the net profit made on a film; initially 0.
     def get_net(self):
@@ -110,53 +108,52 @@ class Film:
     # Sets the net profit made on a film
     # by subtracting the total paid from the gross.
     def set_net(self):
-        newNet = (self.get_gross() - self.get_total())
-        self.net = newNet
+        new_net = (self.get_gross() - self.get_total())
+        self.net = new_net
 
     # Returns the minimum guarantee check number.
     def get_mgnum(self):
-        return self.mgNum
+        return self.mg_num
 
     # Sets the minimum guarantee check number.
     def set_mgnum(self):
-        newMGnum = input('Minimum guarantee check number: ')
-        self.mgNum = newMGnum
+        new_mgnum = input('Minimum guarantee check number: ')
+        self.mg_num = new_mgnum
 
     # Returns the overage check number.
     def get_onum(self):
-        return self.oNum
+        return self.o_num
 
     # Sets the overage check number.
     def set_onum(self):
-        newOnum = input('Overage check number: ')
-        self.oNum = newOnum
+        new_onum = input('Overage check number: ')
+        self.o_num = new_onum
 
     # Returns the date minimum guarantee check was sent.
     def get_mgDate(self):
-        return self.mgDate
+        return self.mg_date
 
     # Sets the date minimum guarantee check was sent.
     def set_mgDate(self):
         date = input('Minimum guarantee date: ')
-        newDate = datetime.datetime.strptime(date, '%m/%d')
-        self.mgDate = newDate.strftime('%m/%d')
+        new_date = datetime.datetime.strptime(date, '%m/%d')
+        self.mg_date = new_date.strftime('%m/%d')
 
     # Returns the date overage check was sent.
     def get_odate(self):
-        return self.oDate
+        return self.o_date
 
     # Sets the date overage check was sent.
     def set_odate(self):
         date = input('Overage check date: ')
-        newDate = datetime.datetime.strptime(date, '%m/%d')
-        self.oDate = newDate.strftime('%m/%d')
+        new_date = datetime.datetime.strptime(date, '%m/%d')
+        self.o_date = new_date.strftime('%m/%d')
+
+# Function generates the sql command and parameters then passes them to db.save.
 
 
-def addFilm(self):
-    conn = sqlite3.connect('/home/javier/box_office_tracker.db')
-    c = conn.cursor()
-    film_list = [self.name, self.distributor, self.start_date,
-                 self.end_date, self.guarantee, self.percentage]
-    c.execute('INSERT into films VALUES (NULL, ?, ?, ?, ?, ?, ?)', film_list)
-    conn.commit()
-    conn.close()
+def add(self):
+    sql = '''INSERT INTO films VALUES (NULL, ?, ?, ?, ?, ?, ?)'''
+    params = [self.name, self.distributor, self.start_date,
+              self.end_date, self.guarantee, self.percentage]
+    db.save(sql, params)

@@ -1,9 +1,6 @@
-import sqlite3
+import db
 
-# Connect to database
-# conn = sqlite3.connect('/home/javier/box_office_tracker.db')
-# c = conn.cursor()
-# A class, Distributor, that is used for various properties
+# A class, Distributor, that contains various properties
 # associated with a distributor.
 
 
@@ -18,12 +15,11 @@ class Distributor:
         self.state = state
         self.zip = zip
 
+# Function that adds a distributor to the database.
 
-def addDis(self):
-    conn = sqlite3.connect('/home/javier/box_office_tracker.db')
-    c = conn.cursor()
-    dis_list = [self.name, self.payee, self.address,
-                self.city, self.state, self.zip]
-    c.execute('INSERT into distributors VALUES (NULL, ?, ?, ?, ?, ?, ?)', dis_list)
-    conn.commit()
-    conn.close()
+
+def add(self):
+    sql = '''INSERT INTO distributors VALUES (NULL, ?, ?, ?, ?, ?, ?)'''
+    params = [self.name, self.payee, self.address,
+              self.city, self.state, self.zip]
+    db.save(sql, params)
