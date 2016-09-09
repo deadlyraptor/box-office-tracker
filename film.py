@@ -11,14 +11,14 @@ class Film:
     # Global variables, usually monetary values that are initially 0.
     gross = 0.0
     overage = 0.0
-    posted = False
-    settled = False
     total_paid = 0.0
     net = 0.0
     mg_num = None
-    o_num = None
     mg_date = None
+    o_num = None
     o_date = None
+    posted = False
+    settled = False
 
     # Class constructor.
     def __init__(self,
@@ -153,7 +153,10 @@ class Calls:
 
 
 def add(self):
-    sql = '''INSERT INTO films VALUES (NULL, ?, ?, ?, ?, ?, ?)'''
+    sql = '''INSERT INTO films VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'''
     params = [self.name, self.distributor, self.start_date,
-              self.end_date, self.guarantee, self.percentage]
+              self.end_date, self.percentage, self.guarantee,
+              self.gross, self.overage, self.total_paid,
+              self.net, self.mg_num, self.mg_date,
+              self.o_num, self.o_date, self.posted, self.settled]
     db.save(sql, params)
