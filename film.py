@@ -22,24 +22,23 @@ class Film:
 
     # Class constructor.
     def __init__(self,
-                 name,
+                 title,
                  distributor,
                  start_date,
                  end_date,
-                 guarantee,
-                 percentage):
-        self.name = name
+                 percentage,
+                 guarantee):
+        self.title = title
         self.distributor = distributor
         self.start_date = start_date
         self.end_date = end_date
-        self.guarantee = float(guarantee)
         self.percentage = (float(percentage)/100)
+        self.guarantee = float(guarantee)
 
 
 class Calls:
     # Returns the gross of a film; initially 0.
     def get_gross(self):
-        # print('The {} gross is {}.'.format(self.name, self.gross))
         return self.gross
 
     # Sets the gross of a film to a new value input by user.
@@ -48,7 +47,6 @@ class Calls:
 
     # Returns the overage of a film; initially 0.
     def get_overage(self):
-        # print('The {} overage is {}.'.format(self.name,self.overage))
         return self.overage
     """
     Sets the overage of a film to a new value using the following formula:
@@ -154,7 +152,7 @@ class Calls:
 
 def add(self):
     sql = '''INSERT INTO films VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'''
-    params = [self.name, self.distributor, self.start_date,
+    params = [self.title, self.distributor, self.start_date,
               self.end_date, self.percentage, self.guarantee,
               self.gross, self.overage, self.total_paid,
               self.net, self.mg_num, self.mg_date,
