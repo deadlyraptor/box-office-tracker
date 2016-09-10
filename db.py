@@ -4,7 +4,7 @@ import sqlite3
 
 
 def save(sql, params):
-    conn = sqlite3.connect('/home/javier/box_office_tracker.db')
+    conn = sqlite3.connect('box_office_tracker.db')
     c = conn.cursor()
     c.execute(sql, params)
     conn.commit()

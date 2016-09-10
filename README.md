@@ -3,45 +3,31 @@ This Python program tracks box office grosses and payments made to film
 distributors.
 
 ###Database Schema
-```
+
+####distributors
+
+| disid | name | payee | address | city | state | zip | attn |
+|:-----:|:----:|:-----:|:-------:|:----:|:-----:|:---:|:----:|
+| INTEGER PRIMARY KEY | TEXT | TEXT | TEXT | TEXT | TEXT | TEXT | TEXT |
+
+```sql
 CREATE TABLE distributors (disid INTEGER PRIMARY KEY, name TEXT, payee TEXT,
                            address TEXT, city TEXT, state TEXT, zip TEXT,
                            attn TEXT);
 ```
-table: distributors
-1. disid INTEGER PRIMARY KEY
-2. name TEXT
-3. payee TEXT
-4. address TEXT
-5. city TEXT
-6. state TEXT
-7. zip TEXT
-8. attn TEXT
-```
+
+####films
+
+| filmid | title | distributor | start_date | end_date | percentage | guarantee | gross | overage | total_paid | net | mg_num | mg_date | o_num | o_date | posted | settled |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|INTEGER | TEXT | TEXT | TEXT | TEXT | INT | INT | INT | INT | INT | INT | INT | TEXT | INT | TEXT | INT | INT
+
+```sql
 CREATE TABLE films (filmid INTEGER, title TEXT, distributor TEXT,
                     start_date TEXT, end_date TEXT, percentage INT,
                     guarantee INT, gross INT, overage IT, total_paid INT,
-                    net INT, mg_num INT, mg_date INT, o_num INT, o_date INT, posted INT,
+                    net INT, mg_num INT, mg_date TEXT, o_num INT, o_date TEXT, posted INT,
                     settled INT);
 
-                    #FOREIGN KEY (distributor) REFERENCES distributors(disid));
+                    FOREIGN KEY (distributor) REFERENCES distributors(disid));
 ```
-table: films
-1. filmid INTEGER
-2. title TEXT
-3. distributor TEXT
-4. start_date TEXT
-5. end_date TEXT
-6. percentage INT
-7. guarantee INT
-8. gross INT
-9. overage INT
-10. total_paid INT
-11. net INT
-12. mg_num INT
-13. mg_date INT
-14. o_num INT
-15. o_date INT
-16. posted INT
-17. settled INT
-18. FOREIGN KEY (distributor) REFERENCES distributors(disid)
