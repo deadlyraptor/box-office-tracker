@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Add Film</h1>
+<br />
+<p>Use this page to add a film.</p>
+<br />
+
+<form action='' method='post'>
+  <input type='text' placeholder='Title' name='title' value='{{ request.form.title }}' />
+  <input type='text' placeholder='Distributor' name='distributor' value='{{ request.form.distributor }}' />
+  <input type='text' placeholder='Start Date' name='start' value='{{ request.form.start }}' />
+  <input type='text' placeholder='End Date' name='end' value='{{ request.form.end }}' />
+  <input type='text' placeholder='Percentage' name='percentage' value='{{ request.form.percentage }}' />
+  <input type='number' placeholder='Guarantee' name='guarantee' value='{{ request.form.guarantee }}' />
+  <input class='btn btn-default' type='submit' value='Add' />
+</form>
+
+<br />
+<p><a href='/'>Go back.</a></p>
+
+{% endblock %}
