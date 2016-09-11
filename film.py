@@ -8,7 +8,7 @@ import db
 
 class Film:
 
-    # Global variables, usually monetary values that are initially 0.
+    # Global variables.
     gross = 0.0
     overage = 0.0
     total_paid = 0.0

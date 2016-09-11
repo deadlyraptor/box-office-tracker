@@ -1,10 +1,11 @@
 import sqlite3
+from settings import database
 
 # Saves input to the database.
 
 
 def save(sql, params):
-    conn = sqlite3.connect('/home/javier/Programming Projects/box-office-tracker/database/box_office_tracker.db')
+    conn = sqlite3.connect(database)
     c = conn.cursor()
     c.execute(sql, params)
     conn.commit()
