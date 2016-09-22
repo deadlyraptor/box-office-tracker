@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--
+<table border='1'>
+  <tr>
+    <th>Name</th>
+    <th>Payee</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Attn</th>
+  </tr>
+{% for row in rows %}
+  <tr>
+    <td>{{ row['name']}}</td>
+    <td>{{ row['payee']}}</td>
+    <td>{{ row['address']}}</td>
+    <td>{{ row['city']}}</td>
+    <td>{{ row['state']}}</td>
+    <td>{{ row['zip']}}</td>
+    <td>{{ row['attn']}}</td>
+  </tr>
+  {% endfor %}
+</table>
+-->
+
+<table border='1'>
+  <tr>
+    <th>Title</th>
+    <th>Distributor</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Percentage</th>
+    <th>Guarantee</th>
+    <th>Gross</th>
+    <th>Overage</th>
+    <th>Total Paid</th>
+    <th>Net</th>
+    <th>MG Check #</th>
+    <th>MG Check Date</th>
+    <th>Overage Check #</th>
+    <th>Overage Check Date</th>
+    <th>Posted</th>
+    <th>Settled</th>
+  </tr>
+  {% for film in films %}
+  <tr>
+    <td>{{ film.title }}</td>
+    <td>{{ film.distributor }}</td>
+    <td>{{ film.start_date }}</td>
+    <td>{{ film.end_date }}</td>
+    <td>{{ film.percentage }}</td>
+    <td>{{ film.guarantee }}</td>
+    <td>{{ film.gross }}</td>
+    <td>{{ film.overage }}</td>
+    <td>{{ film.total_paid }}</td>
+    <td>{{ film.net }}</td>
+    <td>{{ film.mg_num }}</td>
+    <td>{{ film.mg_date }}</td>
+    <td>{{ film.o_num }}</td>
+    <td>{{ film.o_date }}</td>
+    <td>{{ film.posted }}</td>
+    <td>{{ film.settled }}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+<br />
+<p><a href='/'>Go back to homepage.</a></p>
+
+{% endblock %}

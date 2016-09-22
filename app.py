@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, flash, session
+from flask import Flask, render_template, redirect, request, flash, session, g
 import db
 import settings
 from distributor import Distributor
@@ -12,7 +12,11 @@ app.secret_key = settings.key
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    g.db = db.connect_db()
+    cur = g.db.execute('select count(settled) from films where settled = 0;')
+    unsettled = cur.fetchone()
+    g.db.close()
+    return render_template('index.html', unsettled=unsettled)
 
 
 @app.route('/distributor')
@@ -23,6 +27,14 @@ def distributor():
 @app.route('/film')
 def film():
     return render_template('film.html')
+
+
+@app.route('/confirmation')
+def confirmation():
+    g.db = db.connect_db()
+    cur = g.db.execute('select * from films where bookingid = (select max(bookingid) from films);')
+    films = cur.fetchall()
+    return render_template('confirmation.html', films=films)
 
 
 @app.route('/distributor', methods=['POST'])
@@ -36,7 +48,7 @@ def addDis():
               var.attn]
     db.save(sql, params)
     flash('The distributor was successfully added.')
-    return render_template('index.html')
+    return render_template('confirmation.html')
 
 
 @app.route('/film', methods=['POST'])
@@ -51,7 +63,7 @@ def addFilm():
               None, None, False, False]
     db.save(sql, params)
     flash('The film was successfully added.')
-    return render_template('index.html')
+    return render_template('confirmation.html')
 
 
 # start the server with the 'run()' method

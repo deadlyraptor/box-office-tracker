@@ -7,13 +7,16 @@
 <br />
 
 <form action='' method='post'>
-  <input type='text' placeholder='Title' name='title' value='{{ request.form.title }}' />
-  <input type='text' placeholder='Distributor' name='distributor' value='{{ request.form.distributor }}' />
-  <input type='text' placeholder='Start Date' name='start' value='{{ request.form.start }}' />
-  <input type='text' placeholder='End Date' name='end' value='{{ request.form.end }}' />
-  <input type='text' placeholder='Percentage' name='percentage' value='{{ request.form.percentage }}' />
-  <input type='number' placeholder='Guarantee' name='guarantee' value='{{ request.form.guarantee }}' />
-  <input class='btn btn-default' type='submit' value='Add' />
+  <fieldset>
+    <legend>Film</legend>
+    <input type='text' placeholder='Title' name='title' value='{{ request.form.title }}' /><br /><br />
+    <input type='text' placeholder='Distributor' name='distributor' value='{{ request.form.distributor }}' /><br /><br />
+    <input type='text' placeholder='Start Date' name='start' value='{{ request.form.start }}' /><br /><br />
+    <input type='text' placeholder='End Date' name='end' value='{{ request.form.end }}' /><br /><br />
+    <input type='text' placeholder='Percentage' name='percentage' value='{{ request.form.percentage }}' /><br /><br />
+    <input type='number' placeholder='Guarantee' name='guarantee' value='{{ request.form.guarantee }}' /><br /><br />
+    <input class='btn btn-default' type='submit' value='Add' />
+  </fieldset>
 </form>
 
 <br />
