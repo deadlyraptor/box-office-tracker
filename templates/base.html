@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Box Office Tracker</title>
-    <link href='static/bootstrap.min.css' rel='stylesheet' media='screen' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <title>{% block title%}{% endblock %}</title>
+
+    <link href='static/bootstrap.min.css' rel='stylesheet'/>
   </head>
   <body>
 
     <div class='container'>
+
+        <nav class='navbar navbar-default'>
+          <div class='container-fluid'>
+            <div class='navbar-header'>
+              <a class='navbar-brand' href='/'>Box Office Tracker</a>
+            </div>
+            <ul class='nav navbar-nav'>
+              <li><a href='/'>Home</a></li>
+              <li><a href='/distributor'>Add Distributor</a></li>
+              <li><a href='/film'>Add Film</a></li>
+            </ul>
+          </div>
+        </nav>
 
       <!-- child template -->
       {% block content %}{% endblock %}

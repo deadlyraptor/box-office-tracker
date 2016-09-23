@@ -1,13 +1,11 @@
 {% extends "base.html" %}
+{% block title %}Box Office Tracker | Coral Gables Art Cinema {% endblock %}
 {% block content %}
 
-<h1>Coral Gables Art Cinema Box Office Tracker</h1>
+<h2>Welcome to the tracker!</h2>
 <br />
-<p>Welcome to the tracker!</p>
-<p>Navigate using the options below.</p>
-<br />
-<div>
-  <table>
+<div class='table-responsive'>
+  <table class='table table-sm'>
     <tr>
       <th>Unsettled</th>
     </tr>
@@ -16,9 +14,5 @@
     </tr>
   </table>
 </div>
-
-<br />
-<p>Add a <a href='/distributor'>distributor</a>.</p>
-<p>Add a <a href='/film'>film</a>.</p>
 
 {% endblock %}

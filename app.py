@@ -16,7 +16,7 @@ def home():
     cur = g.db.execute('select count(settled) from films where settled = 0;')
     unsettled = cur.fetchone()
     g.db.close()
-    return render_template('index.html', unsettled=unsettled)
+    return render_template('index.html', unsettled=unsettled[0])
 
 
 @app.route('/distributor')
