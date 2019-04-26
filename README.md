@@ -1,10 +1,10 @@
-#Box Office Tracker
+# Box Office Tracker
 This Python program tracks box office grosses and payments made to film
 distributors.
 
-###Database Schema
+### Database Schema
 
-####distributors
+#### distributors
 
 | disid | name | payee | address | city | state | zip | attn |
 |:-----:|:----:|:-----:|:-------:|:----:|:-----:|:---:|:----:|
@@ -16,7 +16,7 @@ CREATE TABLE distributors (disid INTEGER PRIMARY KEY, name TEXT, payee TEXT,
                            attn TEXT);
 ```
 
-####films
+#### films
 
 | bookingid | title | distributor | start_date | end_date | percentage | guarantee | gross | overage | total_paid | net | mg_num | mg_date | o_num | o_date | posted | settled |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
